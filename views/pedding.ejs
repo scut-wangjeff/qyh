@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeUI</title>
+    <link rel="stylesheet" href="/qyh/javascripts/weui.min.css"/>
+    <link rel="stylesheet" href="/qyh/stylesheets/nav.css"/>
+
+</head>
+<body ontouchstart>
+    <div class="content js_container">
+    </div>
+    <script type="text/html" id="tpl_button">
+        <div class="page">
+            <div class="hd">
+                <h1 class="page_title">Button</h1>
+            </div>
+            <div class="bd spacing">
+                <a href="javascript:;" class="weui_btn weui_btn_primary">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_warn">确认</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_warn">确认</a>
+                <a href="javascript:;" class="weui_btn weui_btn_default">按钮</a>
+                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_default">按钮</a>
+                <div class="button_sp_area">
+                    <a href="javascript:;" class="weui_btn weui_btn_plain_default">按钮</a>
+                    <a href="javascript:;" class="weui_btn weui_btn_plain_primary">按钮</a>
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">按钮</a>
+                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
+                </div>
+            </div>
+        </div>
+    </script>
+    <div class="top_bar" style="-webkit-transform:translate3d(0,0,0)">
+        <nav>
+            <ul id="top_menu" class="top_menu">
+                <li>
+                    <a href="http://120.198.246.33/qyh" class="selected" data-id="xzfw_pedding">
+                        <label>我的待办</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://120.198.246.33/qyh/done" data-id="xzfw_done">
+                        <label>我的已办</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-id="xzfw_apply">
+                        <label>发起申请</label>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" data-id="xzfw_setting">
+                        <label>设置通知</label>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="/qyh/javascripts/zepto.min.js"></script>
+    <script langague="javacript">
+    $(function(){
+        var $nav = $('#top_menu');
+        var $container=$('.js_container');
+        var stack=[];
+        $(window).on('hashchange', function (e) {
+            if (/#.+/gi.test(e.newURL)) {
+                return;
+            }
+            var $top = stack.pop();
+            if (!$top) {
+                return;
+            }
+            $top.addClass('slideOut').on('animationend', function () {
+                $top.remove();
+            }).on('webkitAnimationEnd', function () {
+                $top.remove();
+            });
+        });
+        $nav.on('click','li a[data-id]',function(){
+            var id=$(this).data('id');
+            $nav.find('.selected').removeClass('selected');
+            $(this).addClass('selected');
+            var $tpl = $($('#gmcc_tab_' + id).html()).addClass('slideIn').addClass(id);
+            $container.append($tpl);
+            stack.push($tpl);
+            // why not use `history.pushState`, https://github.com/weui/weui/issues/26
+            //history.pushState({id: id}, '', '#' + id);
+            location.hash = '#' + id;
+
+            $($tpl).on('webkitAnimationEnd', function (){
+                $(this).removeClass('slideIn');
+            }).on('animationend', function (){
+                $(this).removeClass('slideIn');
+            });
+        });
+    });
+    </script>
+</body>
+</html>
