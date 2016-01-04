@@ -10,23 +10,21 @@
 <body ontouchstart>
     <div class="content js_container">
     </div>
-    <script type="text/html" id="tpl_button">
+    <script type="text/html" id="gmcc_tab_xzfw_pedding">
         <div class="page">
             <div class="hd">
-                <h1 class="page_title">Button</h1>
+                <h1 class="page_title">我的待办列表</h1>
             </div>
-            <div class="bd spacing">
-                <a href="javascript:;" class="weui_btn weui_btn_primary">按钮</a>
-                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_primary">按钮</a>
-                <a href="javascript:;" class="weui_btn weui_btn_warn">确认</a>
-                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_warn">确认</a>
-                <a href="javascript:;" class="weui_btn weui_btn_default">按钮</a>
-                <a href="javascript:;" class="weui_btn weui_btn_disabled weui_btn_default">按钮</a>
-                <div class="button_sp_area">
-                    <a href="javascript:;" class="weui_btn weui_btn_plain_default">按钮</a>
-                    <a href="javascript:;" class="weui_btn weui_btn_plain_primary">按钮</a>
-                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_primary">按钮</a>
-                    <a href="javascript:;" class="weui_btn weui_btn_mini weui_btn_default">按钮</a>
+            <div class="bd">
+                <div class="weui_cells weui_cells_access global_navs">
+                    <a class="weui_cell js_cell" href="javascript:;" data-id="button">
+                        <span class="weui_cell_hd"><img src="data:image/png;base64,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" class="icon_nav" alt=""></span>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>Button</p>
+                        </div>
+                        <div class="weui_cell_ft">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -35,12 +33,12 @@
         <nav>
             <ul id="top_menu" class="top_menu">
                 <li>
-                    <a href="http://120.198.246.33/qyh" class="selected" data-id="xzfw_pedding">
+                    <a href="javascript:void(0);" class="selected" data-id="xzfw_pedding">
                         <label>我的待办</label>
                     </a>
                 </li>
                 <li>
-                    <a href="http://120.198.246.33/qyh/done" data-id="xzfw_done">
+                    <a href="javascript:void(0);" data-id="xzfw_done">
                         <label>我的已办</label>
                     </a>
                 </li>
@@ -58,7 +56,7 @@
         </nav>
     </div>
 
-    <script src="/qyh/javascripts/zepto.min.js"></script>
+    <script src="/qyh/weui/zepto.min.js"></script>
     <script langague="javacript">
     $(function(){
         var $nav = $('#top_menu');
@@ -78,23 +76,7 @@
                 $top.remove();
             });
         });
-        $nav.on('click','li a[data-id]',function(){
-            var id=$(this).data('id');
-            $nav.find('.selected').removeClass('selected');
-            $(this).addClass('selected');
-            var $tpl = $($('#gmcc_tab_' + id).html()).addClass('slideIn').addClass(id);
-            $container.append($tpl);
-            stack.push($tpl);
-            // why not use `history.pushState`, https://github.com/weui/weui/issues/26
-            //history.pushState({id: id}, '', '#' + id);
-            location.hash = '#' + id;
-
-            $($tpl).on('webkitAnimationEnd', function (){
-                $(this).removeClass('slideIn');
-            }).on('animationend', function (){
-                $(this).removeClass('slideIn');
-            });
-        });
+       
     });
     </script>
 </body>
