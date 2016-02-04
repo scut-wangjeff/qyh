@@ -1,8 +1,33 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.weui_label {
+    display: block;
+    width: 5em;
+}
+
+.page_title {
+    text-align: center;
+    font-size: 34px;
+    color: #3CC51F;
+    font-weight: 400;
+    margin: 0 15%;
+}
+
+.page.button .page_title, .page.cell .page_title {
+    color: #225FBA;
+}
+
+.hd {
+	padding: 2em;
+}
+
+.weui_btn_mid {
+    width: 120px;
+    margin-top: 10px;
 }
